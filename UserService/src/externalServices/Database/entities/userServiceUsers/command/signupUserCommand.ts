@@ -3,12 +3,12 @@ import { Operation } from "../../../enums/operation";
 import { Tables } from "../../../constants/tables";
 import db from "../../../dbconnector";
 import { SignupUserModel } from "../../../models/DAO/SignupUserModel";
+import { environmentVariables } from "../../../../../configuration/environmentVariables";
 
 
 export class SignupUserCommand {
 
     async execute(request: SignupUserModel): Promise<number> {
-
         const dbResponse = await this.query(request)
 
         if (dbResponse === "None") {
@@ -26,7 +26,7 @@ export class SignupUserCommand {
         try {
             const query = db.dbConnector
                 .insert(request)
-                .into(Tables.TABLE_USERS)
+                .into(`${environmentVariables.SCHEMA_NAME}.${Tables.TABLE_USERS}`)
                 .returning(["Email"]);
 
             const response = await query;

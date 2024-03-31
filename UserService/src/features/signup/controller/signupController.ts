@@ -3,7 +3,7 @@ import { signupService } from "../service/signupService";
 
 class SignupController {
     async signup(req: Request, res: Response) {
-        console.log("[Controller] Add User", { input: req.body });
+        console.log("[Controller] Add User", { input: req.body.email});
         const result = await signupService.create(req.body);
         res.status(result.status);
         res.send(result);

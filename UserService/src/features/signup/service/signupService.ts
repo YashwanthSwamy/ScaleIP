@@ -3,6 +3,7 @@ import { Operation } from "../../../externalServices/database/enums/operation";
 import { SignupModel } from "../model/signupModel";
 import HttpStatus from "http-status-codes";
 import { SignupUserResponseModel } from "../model/signupUserResponseModel";
+import PasswordManager from "../../shared/services/passwordManager";
 
 class SignupService {
     async create(customerInfo: SignupModel): Promise<SignupUserResponseModel> {
@@ -12,7 +13,7 @@ class SignupService {
                     Email: customerInfo.email,
                     FirstName: customerInfo.firstName,
                     LastName: customerInfo.lastName,
-                    Password: customerInfo.password,
+                    Password: await PasswordManager.hashPassword(customerInfo.password),
                 });
 
             if (result === Operation.AlreadyExists) {
