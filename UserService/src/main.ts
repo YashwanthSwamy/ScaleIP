@@ -4,7 +4,7 @@ import express from "express";
 import { loginRoutes } from "./routes/login";
 import { signupRoutes } from "./routes/signup";
 import { environmentVariables } from "./configuration/environmentVariables";
-import { TableInitializer } from "./externalServices/Database/tables/intialization";
+import { TableInitializer } from "./externalServices/database/tables/intialization";
 
 const port = environmentVariables.PORT;
 const app = express();

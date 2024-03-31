@@ -1,0 +1,3 @@
+interface SignupUserDBResponseModel {
+  Email: number;
+}
