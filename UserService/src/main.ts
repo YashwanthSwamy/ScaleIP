@@ -3,8 +3,9 @@ import cors from 'cors';
 import express from "express";
 import { loginRoutes } from "./routes/login";
 import { signupRoutes } from "./routes/signup";
+import { environmentVariables } from "./configuration/environmentVariables";
 
-const port = 8080;
+const port = environmentVariables.PORT;
 const app = express();
 
 

@@ -1,3 +1,4 @@
 # UserService - Node app
 node_modules/
 build/
+.env
