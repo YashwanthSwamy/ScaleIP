@@ -10,7 +10,7 @@ class EnvironmentVariables{
         this.init();
     }
 
-    private init() {
+    init() {
         this.PORT = get("PORT").default("8080").asIntPositive();
         this.INSTANCE_INDEX = get("INSTANCE_INDEX").asString();
         this.DB_URL = get("SQL_DB_URI").default("").asString();
