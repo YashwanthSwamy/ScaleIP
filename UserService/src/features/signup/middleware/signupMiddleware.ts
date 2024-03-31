@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import HttpStatus from "http-status-codes";
 import { SignupModel } from "../model/signupModel";
-import { CreateUserValidator } from "../validators/signupValidator";
+import { SignupValidator } from "../validators/signupValidator";
 
 class SignupMiddleware {
 
@@ -14,7 +14,7 @@ class SignupMiddleware {
     };
 
     try {
-      new CreateUserValidator(input)
+      new SignupValidator(input)
         .validateLastName()
         .validateFirstName()
         .validateEmail()

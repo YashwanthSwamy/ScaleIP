@@ -1,7 +1,7 @@
 import { commonValidators } from "../../shared/validators/commonValidators";
 import { SignupModel } from "../model/signupModel";
 
-export class CreateUserValidator {
+export class SignupValidator {
   input: SignupModel;
 
   constructor(request: SignupModel) {
