@@ -2,9 +2,11 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 import express from "express";
 import { loginRoutes } from "./routes/login";
+import { signupRoutes } from "./routes/signup";
 
 const port = 8080;
 const app = express();
+
 
 function checkErrors(err: any, req: any, res: any, next: any) {
     if (err instanceof SyntaxError && err.message.indexOf("JSON")) {
@@ -14,15 +16,23 @@ function checkErrors(err: any, req: any, res: any, next: any) {
     }
 }
 
+// enablisg cross - origin reference for server
 app.use(cors());
+
+// enablisng parsing of API request 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// handle invaliade API requests 
 app.use(checkErrors);
+
+// Routes - API's
 app.use(loginRoutes);
+app.use(signupRoutes);
 
 async function main() {
     // TODO: Initialise database for user information
-    console.log("Server Started!!!")
+    console.log("Server Started!!!" + port)
     app.listen(port);
 }
 
