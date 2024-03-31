@@ -1,0 +1,27 @@
+version: "3"
+services:
+  postgres:
+    hostname: postgres
+    image: "postgres:11.10-alpine"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      HTTP_PROXY: ""
+      HTTPS_PROXY: ""
+      http_proxy: ""
+      https_proxy: ""
+      no_proxy: "127.0.0.1"
+    ports:
+      - "32768:5432"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://postgres:5432"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      venture_vista_local_net:
+
+networks:
+  venture_vista_local_net:
+    driver: bridge

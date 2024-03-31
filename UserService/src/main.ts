@@ -4,6 +4,7 @@ import express from "express";
 import { loginRoutes } from "./routes/login";
 import { signupRoutes } from "./routes/signup";
 import { environmentVariables } from "./configuration/environmentVariables";
+import { TableInitializer } from "./externalServices/Database/tables/intialization";
 
 const port = environmentVariables.PORT;
 const app = express();
@@ -32,9 +33,19 @@ app.use(loginRoutes);
 app.use(signupRoutes);
 
 async function main() {
-    // TODO: Initialise database for user information
-    console.log("Server Started!!!" + port)
-    app.listen(port);
+    // Database Initialisation
+    await TableInitializer.init()
+    .then(async () => {
+      console.log("Database up !!!");
+    })
+    .then(async () => {
+      console.log("Application started on port " + port);
+      // start the app
+      app.listen(port);
+    })
+    .catch(async (error: any) => {
+      console.error("Error setting up service", { error: error });
+    });
 }
 
 main();
