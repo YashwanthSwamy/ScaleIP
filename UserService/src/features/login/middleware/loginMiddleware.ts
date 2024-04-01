@@ -7,7 +7,7 @@ class LoginMiddleware{
     
     public validate(request: Request, response: Response, next: NextFunction) {
         const input: LoginModel = {
-          userId: request.body.username,
+          email: request.body.email,
           password: request.body.password as string
         };
     

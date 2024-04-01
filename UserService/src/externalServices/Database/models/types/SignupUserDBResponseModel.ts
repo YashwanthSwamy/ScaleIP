@@ -1,3 +1,3 @@
 interface SignupUserDBResponseModel {
-  Email: number;
+  Email: string;
 }

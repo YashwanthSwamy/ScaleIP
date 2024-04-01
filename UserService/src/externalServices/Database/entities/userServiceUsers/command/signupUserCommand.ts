@@ -2,7 +2,7 @@
 import { Operation } from "../../../enums/operation";
 import { Tables } from "../../../constants/tables";
 import db from "../../../dbconnector";
-import { SignupUserModel } from "../../../models/DAO/SignupUserModel";
+import { SignupUserModel } from "../../../models/DAO/signupUserModel";
 import { environmentVariables } from "../../../../../configuration/environmentVariables";
 
 
