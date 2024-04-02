@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { GoDotFill } from "react-icons/go";
 
 import { Stacked, Button, SparkLine } from '../../../components';
-import { earningData, SparklineAreaData, companyDetailList } from '../../../data/dummy';
+import { SparklineAreaData, companyDetailList } from '../../../data/dummy';
 import { useCompanyContext } from '../contexts/CompanyContext';
-import { IntroCard } from './';
+import { IntroCard, StatisticCard } from './';
 
 const CompanyDetails = () => {
   const { selectedCompanyId } = useCompanyContext();
@@ -28,32 +28,11 @@ const CompanyDetails = () => {
   return (
     <div className='mt-8'>
       <IntroCard currentCompanyDetails={currentCompanyDetails} />
-      {/* card */}
-      <div className='flex m-2 flex-wrap justify-between items-center'>
-        {
-          earningData.map((item) => (
-            <div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-[22%] m-2 p-4 pt-9 rounded-2xl ">
-              <button
-                type="button"
-                style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
-              >
-                {item.icon}
-              </button>
-              <p className="mt-3">
-                <span className="text-lg font-semibold">{item.amount}</span>
-                <span className={`text-sm text-${item.pcColor} ml-2`}>
-                  {item.percentage}
-                </span>
-              </p>
-              <p className="text-sm text-gray-400  mt-1">{item.title}</p>
-            </div>
-          ))}
-      </div>
+      <StatisticCard currentCompanyDetails={currentCompanyDetails} />
 
       {/* charts */}
-      <div className='flex gap-10 sm:w-full flex-wrap'>
-        <div className='bg-white dark:text-gray-200 dark:secondary-bg m-3 p-4 rounded-2xl md:w-780'>
+      <div className='flex gap-10 sm:w-full'>
+        <div className='bg-white dark:text-gray-200 dark:secondary-bg m-3 p-4 rounded-2xl w-full justify-between'>
           <div className='flex justify-between'>
             <p className='font-bold text-xl text-gray-400'>Revenue Updates</p>
             <div className='flex items-center gap-4'>
@@ -63,11 +42,11 @@ const CompanyDetails = () => {
               </p>
               <p className='flex items-center gap-2 text-green-600 hover:drop-shadow-xl'>
                 <span><GoDotFill /></span>
-                <span>Budget</span>
+                <span>Profit</span>
               </p>
             </div>
           </div>
-          <div className='mt-10 flex gap-10 flex-wrap justify-center'>
+          <div className='mt-10 flex gap-10 justify-between'>
             <div className='border-r-1 border-color m-4 pr-10'>
               <div>
                 <p>
@@ -79,7 +58,7 @@ const CompanyDetails = () => {
                   </span>
                 </p>
                 <p className='text-gray-500 mt-1'>
-                  Budget
+                  Profit
                 </p>
               </div>
               <div>

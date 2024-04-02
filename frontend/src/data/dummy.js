@@ -24,42 +24,42 @@ export const links = [
 
 export const companyList = [
   {
-    id : '61b0cf293b74070001103a04',
+    id: '61b0cf293b74070001103a04',
     name: 'Bio Data Bridges',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5fee1ca2f0a04300017a8f09/picture',
     website_url: 'http://www.biodatabridges.com',
     city: 'Seattle, Washington'
   },
   {
-    id : '556949ad7369642161fb2900',
+    id: '556949ad7369642161fb2900',
     name: 'BioAnalytics, Inc.',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/6550ef4c242f16000146d4a8/picture',
     website_url: 'http://www.bioanalyticsystems.com',
     city: 'Seattle, Washington'
   },
   {
-    id : '54a1346b69702d48e2cd0900',
+    id: '54a1346b69702d48e2cd0900',
     name: 'CheckOrphan',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/63bc4e5b537af90001d14c25/picture',
     website_url: 'http://www.checkorphan.org',
     city: 'Seattle, Washington'
   },
   {
-    id : '5e5679c1b6ef2f00012cf6e9',
+    id: '5e5679c1b6ef2f00012cf6e9',
     name: 'CrystalsFirst',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/654a93dc10455c00012b1db3/picture',
     website_url: 'http://www.crystalsfirst.com',
     city: 'Seattle, Washington'
   },
   {
-    id : '61ec3e19111ee30001f5aec0',
+    id: '61ec3e19111ee30001f5aec0',
     name: 'LifeSci Consulting',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/655de6bbc7049000013bad63/picture',
     website_url: 'http://www.lifesciconsulting.com',
     city: 'Seattle, Washington'
   },
   {
-    id : '60116f8ba7177900e8acbd48',
+    id: '60116f8ba7177900e8acbd48',
     name: 'LumenAstra',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/654a7cadfbca6d0001f8a295/picture',
     website_url: 'http://www.lumenastra.io',
@@ -67,7 +67,7 @@ export const companyList = [
   },
   {
     id: '63923f421f5b8800013c14b1',
-    name : 'CoALA Biosciences',
+    name: 'CoALA Biosciences',
     logo_url: '',
     website_url: 'http://www.coalabio.com',
     city: 'Seattle, Washington'
@@ -76,7 +76,7 @@ export const companyList = [
 
 export const companyDetailList = [
   {
-    id : '61b0cf293b74070001103a04',
+    id: '61b0cf293b74070001103a04',
     name: 'Bio Data Bridges',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5fee1ca2f0a04300017a8f09/picture',
     website_url: 'http://www.biodatabridges.com',
@@ -98,7 +98,7 @@ export const companyDetailList = [
     keywords: []
   },
   {
-    id : '556949ad7369642161fb2900',
+    id: '556949ad7369642161fb2900',
     name: 'BioAnalytics, Inc.',
     logo_url: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/6550ef4c242f16000146d4a8/picture',
     website_url: 'http://www.bioanalyticsystems.com',
@@ -120,7 +120,7 @@ export const companyDetailList = [
     keywords: []
   },
   {
-    id : '54a1346b69702d48e2cd0900',
+    id: '54a1346b69702d48e2cd0900',
     name: 'CheckOrphan',
     website_url: 'http://www.checkorphan.org',
     angellist_url: '',
@@ -139,10 +139,10 @@ export const companyDetailList = [
     annual_revenue_printed: '3.7M',
     total_funding_printed: '',
     last_funding_round: '',
-    keywords: ["orphan diseases","orphan products","rare diseases","neglected diseases"]
+    keywords: ["orphan diseases", "orphan products", "rare diseases", "neglected diseases"]
   },
   {
-    id : '5e5679c1b6ef2f00012cf6e9',
+    id: '5e5679c1b6ef2f00012cf6e9',
     name: 'CrystalsFirst',
     website_url: 'http://www.crystalsfirst.com',
     angellist_url: '',
@@ -161,10 +161,10 @@ export const companyDetailList = [
     annual_revenue_printed: '',
     total_funding_printed: '',
     last_funding_round: '',
-    keywords: ["drug discovery","lead discovery","hit finding","structural biology","fragmentbased drug discovery","library design","fragmentbased lead discovery","crystallography","lead optimization"]
+    keywords: ["drug discovery", "lead discovery", "hit finding", "structural biology", "fragmentbased drug discovery", "library design", "fragmentbased lead discovery", "crystallography", "lead optimization"]
   },
   {
-    id : '61ec3e19111ee30001f5aec0',
+    id: '61ec3e19111ee30001f5aec0',
     name: 'LifeSci Consulting',
     website_url: 'http://www.lifesciconsulting.com',
     angellist_url: '',
@@ -228,7 +228,7 @@ export const earningData = [
     icon: <HiOutlineRefresh />,
     amount: '39,354',
     percentage: '-12%',
-    title: 'Refunds',
+    title: 'Funding',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
@@ -262,7 +262,7 @@ export const stackedCustomSeries = [
     dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Budget',
+    name: 'Profits',
     type: 'StackingColumn',
     background: 'blue',
 
