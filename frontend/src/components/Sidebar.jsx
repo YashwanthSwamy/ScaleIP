@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AiFillSliders } from 'react-icons/ai';
-import { MdOutlineCancel } from 'react-icons/md';
+import { FaAngleDoubleLeft } from "react-icons/fa";
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/dummy';
@@ -31,9 +31,9 @@ const Sidebar = () => {
               <button
                 type="button"
                 onClick={() => setActiveMenu(!activeMenu)}
-                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block"
+                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block text-cyan-700"
               >
-                <MdOutlineCancel />
+                <FaAngleDoubleLeft />
               </button>
             </TooltipComponent>
           </div>

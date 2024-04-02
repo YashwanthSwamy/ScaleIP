@@ -10,7 +10,7 @@ import './App.css';
 
 const App = () => {
   const { activeMenu } = useStateContext();
-  
+
   return (
     <div>
       <BrowserRouter>
@@ -37,15 +37,15 @@ const App = () => {
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
             </div>
-          </div>
-          <div>
-            <Routes>
-              <Route path='' elements={<Dashboard />} />
-              <Route path='/companies' elements={<Companies />} />
-              <Route path='/portfolio' elements={<Portfolio />} />
-              <Route path='/calender' elements={<Calender />} />
-              <Route path='/mail' elements={<Mail />} />
-            </Routes>
+            <div>
+              <Routes>
+                <Route path="/" element={(<Dashboard />)} />  
+                <Route path='/companies' elements={<Companies />} />
+                <Route path='/portfolio' elements={<Portfolio />} />
+                <Route path='/calender' elements={<Calender />} />
+                <Route path='/mail' elements={<Mail />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </BrowserRouter>
