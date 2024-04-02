@@ -24,7 +24,6 @@ const Login = () => {
   const handleSubmit = async (event) => {
     setIsLoading(true);
     event.preventDefault();
-    console.log("form", form)
 
     try {
       const response = await axios.post(`http://localhost:8080/api/v1/userinfo/login`, form);
@@ -93,7 +92,6 @@ const Login = () => {
                 }
                 <button
                   type="submit"
-                  className="btn"
                   disabled={isLoading}
                   style={{ background: 'cyan', color: 'black', borderRadius: '12px' }}
                   className={`mt-4 text-l p-3 hower:drop-shadow-l`}

@@ -2,10 +2,10 @@ import React from 'react';
 import { FaSackDollar } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
 
-import { Stacked, Button, SparkLine } from '../components';
-import { earningData, SparklineAreaData } from '../data/dummy';
+import { Stacked, Button, SparkLine } from '../../../components';
+import { earningData, SparklineAreaData } from '../../../data/dummy';
 
-const Dashboard = () => {
+const CompanyDetails = () => {
   return (
     <div className='mt-8'>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
@@ -121,4 +121,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default CompanyDetails;
