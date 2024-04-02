@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { AiFillSliders } from 'react-icons/ai';
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
+import axios from 'axios';
 
 import loginImage from '../data/login.webp';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -14,15 +15,34 @@ const Login = () => {
 
   const [form, setForm] = useState({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleValueChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (event) => {
     setIsLoading(true);
-    setAuthenticated(true);
-    navigate('/dashboard');
+    event.preventDefault();
+    console.log("form", form)
+
+    try {
+      const response = await axios.post(`http://localhost:8080/api/v1/userinfo/login`, form);
+
+      if (response.status === 200) {
+        setErrorMessage("");
+        const resp = response.data;
+        localStorage.setItem('token', JSON.stringify(resp));
+        navigate('/dashboard');
+        setAuthenticated(true);
+      } else {
+        setErrorMessage("Username and Password didn't Match");
+      }
+    } catch (error) {
+      console.error('API call failed', error);
+      setErrorMessage("Username and Password didn't Match");
+    }
+    setIsLoading(false);
   };
 
   const handleNewUser = () => {
@@ -30,7 +50,7 @@ const Login = () => {
   }
 
   return (
-    <section className=''>
+    <section>
       <div className='flex lg:flex-row flex-col gap-4'>
         <div className='flex lg:flex-row flex-col lg:w-[70%] sm:w-full'>
           <img src={loginImage} className='w-full h-screen bg-center bg-cover bg-dunes' />
@@ -43,7 +63,7 @@ const Login = () => {
               </div>
 
               <h1 className="text-3xl mt-8 font-extrabold tracking-tight dark:text-white text-orange-700">Login</h1>
-              <form className="w-full flex flex-col mt-10 p-12" onSubmit={handleSubmit}>
+              <form className="w-full flex flex-col pt-4 p-12" onSubmit={handleSubmit}>
                 <div>
                   <TextBoxComponent
                     placeholder="Email"
@@ -68,16 +88,19 @@ const Login = () => {
                     style={{ width: '320px', height: '48px' }}
                   />
                 </div>
+                {errorMessage &&
+                  <p className='text-red-500 pt-4 text-center'>Username and Password didn't Match!</p>
+                }
                 <button
                   type="submit"
                   className="btn"
                   disabled={isLoading}
-                  style={{ background: 'cyan', color: 'white', borderRadius: '12px' }}
+                  style={{ background: 'cyan', color: 'black', borderRadius: '12px' }}
                   className={`mt-4 text-l p-3 hower:drop-shadow-l`}
                 >
                   {isLoading ? 'Logining In...' : 'Login'}
                 </button>
-                <button className='text-red-500 mt-4 text-l' onClick={handleNewUser} >New User?</button>
+                <button className='text-gray-500 mt-4 text-l' onClick={handleNewUser} >New User?</button>
               </form>
             </div>
           </div>
