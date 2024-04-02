@@ -1,4 +1,4 @@
-import { Calender, Companies, Dashboard, Portfolio } from '../pages';
+import { Calender, MyList, Dashboard, Portfolio } from '../pages';
 
 const privatePaths = [
     {
@@ -6,8 +6,8 @@ const privatePaths = [
         element: <Dashboard />,
     },
     {
-        path: 'companies',
-        element: <Companies />,
+        path: 'MyList',
+        element: <MyList />,
     },
     {
         path: 'portfolio',
