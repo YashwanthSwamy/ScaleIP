@@ -1,33 +1,33 @@
-import React from 'react';
-import { FaSackDollar } from "react-icons/fa6";
+import React, { useState, useEffect } from 'react';
 import { GoDotFill } from "react-icons/go";
 
 import { Stacked, Button, SparkLine } from '../../../components';
-import { earningData, SparklineAreaData } from '../../../data/dummy';
+import { earningData, SparklineAreaData, companyDetailList } from '../../../data/dummy';
+import { useCompanyContext } from '../contexts/CompanyContext';
+import { IntroCard } from './';
 
 const CompanyDetails = () => {
+  const { selectedCompanyId } = useCompanyContext();
+  const [currentCompanyDetails, setcurrentCompanyDetails] = useState();
+
+  useEffect(() => {
+    if (selectedCompanyId) {
+      const companyDetails = companyDetailList.filter(company => company.id === selectedCompanyId);
+      if (companyDetails) {
+        setcurrentCompanyDetails(companyDetails[0]);
+      }
+    }
+  }, [selectedCompanyId]);
+
+  if (!currentCompanyDetails) {
+    return (
+      <></>
+    );
+  }
+
   return (
     <div className='mt-8'>
-      <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className='flex font-bold text-xl text-gray-400 gap-2'>Earnings <FaSackDollar color='gold' className='text-2xl' /></p>
-              <p className='text-2xl'>$75,958.42</p>
-            </div>
-          </div>
-          <div className='mt-6'>
-            <Button
-              color='white'
-              bgColor='cyan'
-              text='Download'
-              borderRadius='10px'
-              size='md'
-            />
-          </div>
-        </div>
-      </div>
-
+      <IntroCard currentCompanyDetails={currentCompanyDetails} />
       {/* card */}
       <div className='flex m-2 flex-wrap justify-between items-center'>
         {
