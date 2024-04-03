@@ -9,11 +9,11 @@ import { FaThList } from "react-icons/fa";
 
 export const links = [
   {
-    name: 'MyList',
+    name: 'myList',
     icon: <FaThList />,
   },
   {
-    name: 'calendar',
+    name: 'calender',
     icon: <IoCalendar />,
   },
   {
@@ -301,3 +301,119 @@ export const stackedPrimaryXAxis = {
   labelIntersectAction: 'Rotate45',
   valueType: 'Category',
 };
+
+export const contextMenuItems = [
+  'AutoFit',
+  'AutoFitAll',
+  'SortAscending',
+  'SortDescending',
+  'Copy',
+  'Edit',
+  'Delete',
+  'Save',
+  'Cancel',
+  'PdfExport',
+  'ExcelExport',
+  'CsvExport',
+  'FirstPage',
+  'PrevPage',
+  'LastPage',
+  'NextPage',
+];
+
+export const gridOrderStatus = (props) => (
+  <button
+    type="button"
+    style={{ background: props.StatusBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.Status}
+  </button>
+);
+
+const gridCompanyLogo = (props) => (
+  <div className="flex items-center gap-2">
+    <img
+      className="rounded-full w-10 h-10"
+      src={props.companyLogo}
+      alt="employee"
+    />
+    <p>{props.Name}</p>
+  </div>
+);
+
+export const gridAction = (props) => (
+  <button
+    type="button"
+    style={{ background: props.actionBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.action}
+  </button>
+);
+
+
+
+export const ordersGrid = [
+  {
+    headerText: 'company',
+    template: gridCompanyLogo,
+    textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'name',
+    headerText: 'Name',
+    width: '150',
+    textAlign: 'Center',
+  },
+  { 
+    field: 'requestedDate',
+    headerText: 'Requested Date',
+    width: '150',
+    textAlign: 'Center',
+  },
+  {
+    headerText: 'Status',
+    template: gridOrderStatus,
+    field: 'status',
+    textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'Location',
+    headerText: 'Location',
+    width: '150',
+    textAlign: 'Center',
+  },
+  {
+    field: 'action',
+    template: gridAction,
+    headerText: 'Action',
+    width: '150',
+    textAlign: 'Center',
+  }
+];
+
+export const ordersData = [
+  {
+    companyLogo: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/655de6bbc7049000013bad63/picture',
+    name: 'LifeSci Consulting',
+    requestedDate: '04-04-2024',
+    Location: 'USA',
+    Status: 'pending',
+    StatusBg: '#FB9678',
+    actionBg: 'orange',
+    action: 'Retrive'
+  },
+  {
+    companyLogo: 'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/654a93dc10455c00012b1db3/picture',
+    name: 'Crystals First',
+    requestedDate: '04-03-2024',
+    Location: 'USA',
+    Status: 'Accepted',
+    StatusBg: '#8BE78B',
+    actionBg: 'black',
+    action: 'Info'
+  },
+];

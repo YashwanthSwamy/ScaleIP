@@ -2,19 +2,19 @@ import { Calender, MyList, Dashboard, Portfolio } from '../pages';
 
 const privatePaths = [
     {
-        path: 'dashboard',
+        path: '/dashboard',
         element: <Dashboard />,
     },
     {
-        path: 'MyList',
+        path: '/myList',
         element: <MyList />,
     },
     {
-        path: 'portfolio',
+        path: '/profile',
         element: <Portfolio />,
     },
     {
-        path: 'calender',
+        path: '/calender',
         element: <Calender />,
     },
 ];
