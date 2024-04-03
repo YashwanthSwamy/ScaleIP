@@ -23,7 +23,7 @@ const Register = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/userinfo/signup`, form);
+            const response = await axios.post(`${process.env.REACT_APP_REGISTER_URL}`, form);
 
             if (response.status === 200) {
                 const resp = response.data;

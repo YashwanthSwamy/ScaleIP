@@ -19,7 +19,7 @@ const CompanyDetails = () => {
         "companyId": selectedCompanyId
       }
       try {
-        const response = await axios.get(`http://localhost:8080/api/v1/userinfo/company`, { params: reqBody });
+        const response = await axios.get(`${process.env.REACT_APP_COMPANY_DETAILS_URL}`, { params: reqBody });
         if (response.status === 200) {
           console.log("resp", response)
           const resp = response.data.details;

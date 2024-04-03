@@ -1,0 +1,15 @@
+version: "3"
+services:
+  ventureVistafrontend:
+    hostname: venture_vistauser_frontend
+    image: venture_vistauser_frontend:latest
+    build:
+      context: .
+    ports:
+      - "12345:80"
+    deploy:
+      resources:
+        limits:
+          memory: 126M
+        reservations:
+          memory: 50M

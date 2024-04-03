@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:8080/api/v1/userinfo/login`, form);
+      const response = await axios.post(`${process.env.REACT_APP_LOGIN_URL}`, form);
 
       if (response.status === 200) {
         setErrorMessage("");

@@ -12,8 +12,10 @@ const Dashboard = () => {
     const reqBody = {
       "email": "yashwanth.swamy@colorado.edu"
     }
+    console.log("process.env.REACT_APP_COMPANIES_LIST_URL", process.env.REACT_APP_COMPANIES_LIST_URL)
+
     try {
-      const response = await axios.get(`http://localhost:8080/api/v1/userinfo/companieslist`, { params: reqBody });
+      const response = await axios.get(`${process.env.REACT_APP_COMPANIES_LIST_URL}`, { params: reqBody });
       if (response.status === 200) {
         const resp = response.data.companies;
         if (resp) {
