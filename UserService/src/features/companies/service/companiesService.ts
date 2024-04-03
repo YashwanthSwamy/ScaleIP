@@ -1,16 +1,19 @@
 import { getStatusCode } from "../../shared/services/getStatusCode";
 import { Operation } from "../../../externalServices/database/enums/operation";
+import  {getCompanyList} from "../../../externalServices/database/entities/companies/query/getCompanyList";
+
 
 class CompaniesService {
     async getList() {
         try {
+            const result = await getCompanyList.execute();
             return {
-                data: "",
-                status: getStatusCode.operationToStatusCode(Operation.BadRequest)
+                data: result,
+                status: getStatusCode.operationToStatusCode(Operation.Success)
             };
         } catch (operation: any) {
             return {
-                data: "",
+                data: undefined,
                 status: getStatusCode.operationToStatusCode(operation)
             };
         }

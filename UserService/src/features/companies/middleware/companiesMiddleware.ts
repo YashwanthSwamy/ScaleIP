@@ -6,9 +6,8 @@ import { CompaniesValidator } from "../validators/companiesValidator";
 
 class CompaniesMiddleware {
     public validate(request: Request, response: Response, next: NextFunction) {
-        console.log("email", request.body);
         const input: CompaniesModel = {
-            email: request.body.email,
+            email: request.query.email as string,
         };
 
         try {

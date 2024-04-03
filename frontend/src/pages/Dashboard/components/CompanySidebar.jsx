@@ -3,9 +3,8 @@ import { HiBuildingStorefront } from "react-icons/hi2";
 import { FaImage } from "react-icons/fa6";
 
 import { useCompanyContext } from '../contexts/CompanyContext';
-import { companyList } from '../../../data/dummy';
 
-const CompanySidebar = () => {
+const CompanySidebar = ({ companyList }) => {
     const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
     const { setSelectedCompanyId } = useCompanyContext();
@@ -28,7 +27,7 @@ const CompanySidebar = () => {
 
     return (
         <>
-            <div className='max-h-screen overflow-y-auto'>
+            <div className='max-h-screen overflow-y-auto w-fit m-4'>
                 <div className="rounded-lg flex justify-center items-center bg-gray-400 lg:h-[5%] md:h-[3%]">
                     <div to="/" className="items-center gap-3 ml-3 mt-4 pb-4 flex text-xl font-extrabold tracking-tight dark:text-white text-white">
                         <HiBuildingStorefront /> <span>Companies</span>
@@ -56,11 +55,33 @@ const CompanySidebar = () => {
             <div className="m-4 flex justify-center">
                 {companyList.length > itemsPerPage && (
                     <div className="flex">
-                        {[...Array(Math.ceil(companyList.length / itemsPerPage)).keys()].map((pageNumber) => (
-                            <button key={pageNumber + 1} onClick={() => handlePageClick(pageNumber + 1)} className={`mx-1 px-3 py-1 rounded-md ${currentPage === pageNumber + 1 ? 'bg-gray-600 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'}`}>
-                                {pageNumber + 1}
+                        {currentPage > 1 && (
+                            <button onClick={() => handlePageClick(currentPage - 1)} className="mx-1 px-3 py-1 rounded-md bg-gray-300 text-gray-700 hover:bg-gray-400">
+                                &lt;
                             </button>
-                        ))}
+                        )}
+                        {currentPage > 2 && (
+                            <span className="mx-1 py-1 rounded-md">...</span>
+                        )}
+                        {[...Array(Math.min(3, Math.ceil(companyList.length / itemsPerPage))).keys()].map((pageNumber) => {
+                            const page = currentPage - 1 + pageNumber;
+                            if (page > 0) {
+                                return (
+                                    <button key={page} onClick={() => handlePageClick(page)} className={`mx-1 px-3 py-1 rounded-md ${currentPage === page ? 'bg-gray-600 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'}`}>
+                                        {page}
+                                    </button>
+                                );
+                            }
+                            return null;
+                        })}
+                        {currentPage < Math.ceil(companyList.length / itemsPerPage) - 1 && (
+                            <span className="mx-1 py-1 rounded-md">...</span>
+                        )}
+                        {currentPage < Math.ceil(companyList.length / itemsPerPage) && (
+                            <button onClick={() => handlePageClick(currentPage + 1)} className="mx-1 px-3 py-1 rounded-md bg-gray-300 text-gray-700 hover:bg-gray-400">
+                                &gt;
+                            </button>
+                        )}
                     </div>
                 )}
             </div>
