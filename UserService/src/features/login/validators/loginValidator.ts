@@ -10,7 +10,7 @@ export class LoginValidator {
 
   validateUserId() {
     if (!commonValidators.checkIsValidASCII(this.input.email)) {
-      throw new Error("[VALIDATION] user ID undefined/ not ASCII");
+      throw new Error("[VALIDATION] email undefined/ not ASCII");
     }
 
     return this;

@@ -3,6 +3,7 @@ import cors from 'cors';
 import express from "express";
 import { loginRoutes } from "./routes/login";
 import { signupRoutes } from "./routes/signup";
+import { companiesRoutes } from "./routes/companies";
 import { environmentVariables } from "./configuration/environmentVariables";
 import { TableInitializer } from "./externalServices/database/tables/intialization";
 
@@ -31,6 +32,7 @@ app.use(checkErrors);
 // Routes - API's
 app.use(loginRoutes);
 app.use(signupRoutes);
+app.use(companiesRoutes);
 
 async function main() {
     // Database Initialisation

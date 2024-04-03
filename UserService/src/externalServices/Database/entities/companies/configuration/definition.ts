@@ -1,0 +1,73 @@
+import Knex from "knex";
+
+export default class UserServiceCompanies {
+
+  static definition(table: Knex.CreateTableBuilder) {
+    table.string("domain_clean");
+    table.string("id");
+    table.primary(["id"]);
+    table.string("website_url");
+    table.string("blog_url");
+    table.string("anglelist_url");
+    table.string("linkedin_url");
+    table.string("twitter_url");
+    table.string("facebook_url");
+    table.integer("alexa_ranking");
+    table.string("phone");
+    table.string("linkedin_uid");
+    table.integer("founded_year");
+    table.string("publicly_traded_symbol");
+    table.string("publicly_traded_exchange");
+    table.string("logo_url");
+    table.string("crunchbase_url");
+    table.string("primary_domain");
+    table.string("sanitized_phone");
+    table.string("industry");
+    table.integer("estimated_num_employees");
+    table.boolean("snippets_loaded");
+    table.string("industry_tag_id");
+    table.integer("retail_location_count");
+    table.string("raw_address");
+    table.string("street_address");
+    table.string("city");
+    table.string("state");
+    table.string("postal_code");
+    table.string("country");
+    table.string("owned_by_organization_id");
+    table.integer("num_suborganizations");
+    table.string("seo_description");
+    table.string("short_description");
+    table.string("annual_revenue_printed");
+    table.integer("annual_revenue");
+    table.integer("total_funding");
+    table.string("total_funding_printed");
+    table.dateTime("latest_funding_round_date");
+    table.string("total_funding_printed");
+    table.string("total_funding_printed");
+    table.string("latest_funding_stage");
+    table.jsonb("primary_phone");
+    table.string("languages");
+    table.string("industries");
+    table.jsonb("industry_tag_hash");
+    table.string("keywords");
+    table.string("secondary_industries");
+    table.string("technology_names");
+    table.string("org_chart_root_people_ids");
+    table.jsonb("departmental_head_count");
+    table.jsonb("funding_events");
+    table.jsonb("current_technologies");
+    table.jsonb("suborganizations");
+    table.string("org_name_clean");
+    table.integer("sbir");
+    table.integer("licensed");
+    table.integer("sponsored");
+    table.integer("autum2023");
+    table.integer("bio2023");
+    table.integer("uidp2023");
+    table.jsonb("search_vector");
+    table.integer("bio2022");
+    table.boolean("for_profit");
+    table.jsonb("industry_vector");
+    table.jsonb("location_vector");
+  }
+}
