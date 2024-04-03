@@ -28,17 +28,22 @@ const Dashboard = () => {
 
   if (isLoading) {
     return (
-      <p className='text-3xl flex justify-center items-center'>
-        Loading ...
-      </p>
+      <div className='text-3xl  text-cyan-900 flex justify-center items-center'>
+        <p>
+          Loading ...
+        </p>
+      </div>
     )
   }
 
-  if(!companyList){
+  if (!companyList) {
     return (
-      <p className='text-3xl flex justify-center items-center'>
-        No Companies...
-      </p>
+      <div className='text-3xl text-cyan-900 flex justify-center items-center'>
+        <p>
+          No Companies...
+        </p>
+      </div>
+
     )
   }
 

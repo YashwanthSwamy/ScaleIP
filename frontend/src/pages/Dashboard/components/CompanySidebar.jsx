@@ -27,7 +27,7 @@ const CompanySidebar = ({ companyList }) => {
 
     return (
         <>
-            <div className='max-h-screen overflow-y-auto w-fit m-4'>
+            <div className='max-h-screen overflow-y-auto w-fit mb-4'>
                 <div className="rounded-lg flex justify-center items-center bg-gray-400 lg:h-[5%] md:h-[3%]">
                     <div to="/" className="items-center gap-3 ml-3 mt-4 pb-4 flex text-xl font-extrabold tracking-tight dark:text-white text-white">
                         <HiBuildingStorefront /> <span>Companies</span>
