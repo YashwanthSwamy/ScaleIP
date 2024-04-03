@@ -15,12 +15,29 @@ services:
     ports:
       - "32768:5432"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://postgres:5432"]
+      test: [ "CMD", "curl", "-f", "http://postgres:5432" ]
       interval: 30s
       timeout: 10s
       retries: 5
     networks:
       venture_vista_local_net:
+
+
+  ventureVistaUserInfoService:
+    hostname: venture_vistauser_info_service
+    image: venture_vistauser_info:local
+    build:
+      context: UserService
+    ports:
+      - "8080:8080"
+    command: [ "npm", "run", "serve" ]
+    environment:
+      SQL_DB_URI: postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - "postgres"
+    networks:
+      venture_vista_local_net:
+
 
 networks:
   venture_vista_local_net:
