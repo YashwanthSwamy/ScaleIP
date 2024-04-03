@@ -11,11 +11,11 @@ export default class UserModelDTO {
     lastName: string;
     email: string;
     password: string;
-  
+
     constructor(customer: IUserDBModel) {
         this.firstName = customer.FirstName;
         this.lastName = customer.LastName;
         this.email = customer.Email;
         this.password = customer.Password;
     }
-  }
+}

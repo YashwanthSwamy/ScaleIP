@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoDotFill } from "react-icons/go";
+import axios from 'axios';
 
 import { Stacked, Button, SparkLine } from '../../../components';
 import { SparklineAreaData, companyDetailList } from '../../../data/dummy';
@@ -9,19 +10,47 @@ import { IntroCard, StatisticCard } from './';
 const CompanyDetails = () => {
   const { selectedCompanyId } = useCompanyContext();
   const [currentCompanyDetails, setcurrentCompanyDetails] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (selectedCompanyId) {
-      const companyDetails = companyDetailList.filter(company => company.id === selectedCompanyId);
-      if (companyDetails) {
-        setcurrentCompanyDetails(companyDetails[0]);
+      setIsLoading(true);
+      const reqBody = {
+        "companyId": selectedCompanyId
       }
+      try {
+        const response = await axios.get(`http://localhost:8080/api/v1/userinfo/company`, { params: reqBody });
+        if (response.status === 200) {
+          console.log("resp", response)
+          const resp = response.data.details;
+          if (resp) {
+            setcurrentCompanyDetails(resp);
+          }
+        }
+        else {
+          setcurrentCompanyDetails([]);
+        }
+      } catch (error) {
+        console.error('API call failed', error);
+        setcurrentCompanyDetails([]);
+      }
+      setIsLoading(false);
     }
   }, [selectedCompanyId]);
 
   if (!currentCompanyDetails) {
     return (
-      <></>
+      <div className='h-screen flex justify-center items-center'>
+        <p className='text-3xl text-cyan-900'> Make a Selection ...</p>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className='h-screen flex justify-center items-center'>
+        <p className='text-3xl text-cyan-900'> Loading ...</p>
+      </div>
     );
   }
 

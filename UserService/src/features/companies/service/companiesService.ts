@@ -1,7 +1,7 @@
 import { getStatusCode } from "../../shared/services/getStatusCode";
 import { Operation } from "../../../externalServices/database/enums/operation";
-import  {getCompanyList} from "../../../externalServices/database/entities/companies/query/getCompanyList";
-
+import { getCompanyList } from "../../../externalServices/database/entities/companies/query/getCompanyList";
+import { getCompanyDetails } from "../../../externalServices/database/entities/companies/query/getCompanyDetails";
 
 class CompaniesService {
     async getList() {
@@ -21,13 +21,14 @@ class CompaniesService {
 
     async getDetails(companyId: string) {
         try {
+            const result = await getCompanyDetails.execute(companyId);
             return {
-                data: "",
-                status: getStatusCode.operationToStatusCode(Operation.BadRequest)
+                data: result,
+                status: getStatusCode.operationToStatusCode(Operation.Success)
             };
         } catch (operation: any) {
             return {
-                data: "",
+                data: undefined,
                 status: getStatusCode.operationToStatusCode(operation)
             };
         }

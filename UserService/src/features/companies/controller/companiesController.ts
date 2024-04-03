@@ -10,8 +10,8 @@ class CompaniesController {
     }
 
     async getCompanyDetails(req: Request, res: Response) {
-        console.log("[Controller] Get Company Details", { input: req.body.companyId })
-        const result = await companiesService.getDetails(req.query.id as string)
+        console.log("[Controller] Get Company Details", { input: req.query.companyId })
+        const result = await companiesService.getDetails(req.query.companyId as string)
         res.status(result.status);
         res.send(result.data);
     }
