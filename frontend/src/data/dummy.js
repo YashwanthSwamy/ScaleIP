@@ -417,3 +417,14 @@ export const ordersData = [
     action: 'Info'
   },
 ];
+
+export const scheduleData = [
+  {
+    Id: 1,
+    Subject: 'Interview With "The Team"',
+    Location: '#18475 West Colfax Avenue, Suite 132, Golden, Co',
+    StartTime: '2024-04-04T19:00:00.000Z',
+    EndTime: '2024-04-04T20:30:00.000Z',
+    CategoryColor: '#1aaa55',
+  }
+];
