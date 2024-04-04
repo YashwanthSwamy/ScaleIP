@@ -17,6 +17,10 @@ const privatePaths = [
         path: '/calender',
         element: <Calender />,
     },
+    {
+        path: '/*',
+        element: <Dashboard />,
+    },
 ];
 
 export default privatePaths;

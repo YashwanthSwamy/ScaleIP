@@ -27,7 +27,7 @@ const Sidebar = () => {
             <Link to="/dashboard" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-cyan-700">
               <AiFillSliders /> <span>Venture Vista</span>
             </Link>
-            <TooltipComponent content="Menu" position="BottomCenter">
+            <TooltipComponent content="Close Menu" position="BottomCenter">
               <button
                 type="button"
                 onClick={() => setActiveMenu(!activeMenu)}

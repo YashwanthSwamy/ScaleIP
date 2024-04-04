@@ -12,7 +12,7 @@ import './App.css';
 const App = () => {
   const { activeMenu, authenticated } = useStateContext();
 
-  if (true) {
+  if (authenticated) {
     return (
       <div>
         <BrowserRouter>

@@ -7,9 +7,10 @@ import axios from 'axios';
 
 import loginImage from '../data/login.webp';
 import { useStateContext } from '../contexts/ContextProvider';
+import JwtUtils from '../utils/JwtUtils';
 
 const Login = () => {
-  const { setAuthenticated } = useStateContext();
+  const { setAuthenticated, setUserInfo } = useStateContext();
 
   const navigate = useNavigate();
 
@@ -32,6 +33,8 @@ const Login = () => {
         setErrorMessage("");
         const resp = response.data;
         localStorage.setItem('token', JSON.stringify(resp));
+        const decodedPayload = JwtUtils.decodeToken(resp);
+        setUserInfo(decodedPayload.data)
         navigate('/dashboard');
         setAuthenticated(true);
       } else {
