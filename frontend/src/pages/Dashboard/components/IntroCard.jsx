@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSackDollar } from "react-icons/fa6";
 import { AiOutlineFundView } from "react-icons/ai";
 import { FaGlobe } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
-
-import { Button } from '../../../components';
+import MailDialog from './MailDialog';
 
 const IntroCard = ({ currentCompanyDetails }) => {
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+    const handleOpenDialog = () => {
+        setIsDialogOpen(true);
+    };
+
+    const handleCloseDialog = () => {
+        setIsDialogOpen(false);
+    };
 
     const handleNameClick = (websiteUrl) => () => {
         window.open(websiteUrl, '_blank');
@@ -43,17 +51,20 @@ const IntroCard = ({ currentCompanyDetails }) => {
                             {!currentCompanyDetails.annual_revenue_printed && <p className='text-l'>Income figures pending, stay tuned.</p>}
                         </div>
                         <div className='mt-6 flex justify-center items-center'>
-                            <Button
-                                color='white'
-                                bgColor='green'
-                                text='Reach out'
-                                borderRadius='10px'
-                                size='md'
-                                icon={<AiOutlineFundView className='text-3xl pt-1' />}
-                            />
+                            <button
+                                type='button'
+                                style={{ background: 'green', color: 'white', borderRadius: "10px" }}
+                                className={`text-md flex gap-1 items-center justify-center p-3 hower:drop-shadow-xl `}
+                                onClick={handleOpenDialog}
+                            >
+                                Reach out <AiOutlineFundView className='text-3xl pt-1' />
+                            </button>
                         </div>
                     </div>
                 </div>
+                {isDialogOpen && (
+                    <MailDialog isOpen={isDialogOpen} onClose={handleCloseDialog} />
+                )}
             </div>
         </div>
     )
