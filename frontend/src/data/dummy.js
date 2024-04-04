@@ -428,3 +428,12 @@ export const scheduleData = [
     CategoryColor: '#1aaa55',
   }
 ];
+
+export const chatData = [
+  {
+    image: "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/654a93dc10455c00012b1db3/picture",
+    message: 'Approved Your Proposal',
+    desc: 'Proposal Accepted',
+    time: '12:12 PM',
+  },
+];
