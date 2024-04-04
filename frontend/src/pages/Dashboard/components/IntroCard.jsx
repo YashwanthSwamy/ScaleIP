@@ -26,6 +26,7 @@ const IntroCard = ({ currentCompanyDetails }) => {
                                     {currentCompanyDetails.industry && <span className='text-sm ml-4 px-2 border-2 border-green-500 inline-flex items-center text-green-500'>{currentCompanyDetails.industry}</span>}
                                 </p>
                                 {currentCompanyDetails.short_description && <p className='text-sm mt-2 text-gray-400 min-h-min text-justify'>{currentCompanyDetails.short_description}</p>}
+                                {!currentCompanyDetails.short_description && <p className='text-sm mt-2 text-gray-400 min-h-min text-justify'>Mission statement currently under development</p>}
                             </div>
                         </div>
                         <div className='mt-4 text-2xl text-cyan-700 flex gap-2'>
@@ -38,7 +39,8 @@ const IntroCard = ({ currentCompanyDetails }) => {
                     <div className='w-[15%]'>
                         <div>
                             <p className='flex font-bold text-xl text-gray-400 gap-2'>Revenue <FaSackDollar color='gold' className='text-2xl' /></p>
-                            <p className='text-2xl'>${currentCompanyDetails.annual_revenue_printed}</p>
+                            {currentCompanyDetails.annual_revenue_printed && <p className='text-2xl'>$ {currentCompanyDetails.annual_revenue_printed}</p>}
+                            {!currentCompanyDetails.annual_revenue_printed && <p className='text-l'>Income figures pending, stay tuned.</p>}
                         </div>
                         <div className='mt-6 flex justify-center items-center'>
                             <Button
