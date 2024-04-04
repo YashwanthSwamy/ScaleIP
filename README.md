@@ -34,3 +34,30 @@ The `docker-compose.yml` file defines the services required for Venture Vista, i
 
 ```bash
 docker-compose up --build
+```
+
+## Postman Collection
+
+For easy testing and interaction with Venture Vista's APIs, we provide a Postman collection. Postman is a popular API client that allows you to explore, test, and debug APIs more efficiently.
+
+### Installation
+
+1. If you haven't already, [download and install Postman](https://www.postman.com/downloads/).
+2. Once installed, launch Postman.
+
+### Importing the Collection
+
+1. Download the Venture Vista Postman collection file from [this link](/ScaleIP.postman_collection.json).
+2. In Postman, click on the **Import** button located in the top-left corner.
+3. Choose the downloaded JSON file.
+4. Click **Open** to import the collection into your Postman workspace.
+
+### Usage
+
+1. After importing the collection, you'll find it listed in the Collections tab on the left sidebar.
+2. Click on the Venture Vista collection to expand it and view available requests.
+3. Adjust request parameters as needed (such as endpoint URLs, request body, headers, etc.).
+4. Click on **Send** to execute the request.
+5. View the response returned by the server in the Response section below.
+
+Feel free to explore and interact with the various endpoints provided in the collection to understand the functionality of Venture Vista's APIs.
