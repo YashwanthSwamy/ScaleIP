@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "3e228c97-a642-4074-af31-9a2b2cb50b8d",
+		"name": "ScaleIP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24705768",
+		"_collection_link": "https://lunar-robot-802982.postman.co/workspace/New-Team-Workspace~ce6dabb3-ac59-453e-a53e-b44a83a15ff7/collection/24705768-3e228c97-a642-4074-af31-9a2b2cb50b8d?action=share&source=collection_link&creator=24705768"
+	},
+	"item": [
+		{
+			"name": "UserService",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"yashwanth.swamy@colorado.edu\",\n    \"password\": \"Hello@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/userinfo/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"userinfo",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Yashwanth\",\n    \"lastName\": \"Hirehalli Swamy\",\n    \"email\": \"yashwanth.swamy@colorado.edu\",\n    \"password\": \"Hello@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/userinfo/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"userinfo",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CompaniesList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/userinfo/companieslist?email=yashwanth.swamy@colorado.edu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"userinfo",
+								"companieslist"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "yashwanth.swamy@colorado.edu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CompanyDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/userinfo/company?companyId=54a1346b69702d48e2cd0900",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"userinfo",
+								"company"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "54a1346b69702d48e2cd0900"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Investments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/userinfo/investments?email=yashwanth.swamy@colorado.edu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"userinfo",
+								"investments"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "yashwanth.swamy@colorado.edu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Investments",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"yashwanth.swamy@colorado.edu\",\n    \"logo_url\": \"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/655de6bbc7049000013bad63/picture\",\n    \"company_name\": \"LifeSci Consulting\",\n    \"location\": \"Boulder\",\n    \"status\": \"Pending\",\n    \"message\": \"<p>Hello</p>\",\n    \"requested_date\": \"2024-04-04T19:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/userinfo/investments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"userinfo",
+								"investments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

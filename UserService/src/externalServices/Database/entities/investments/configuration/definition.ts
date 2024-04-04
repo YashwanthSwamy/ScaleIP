@@ -4,11 +4,11 @@ export default class UserServiceInvestments {
 
   static definition(table: Knex.CreateTableBuilder) {
     table.uuid("id").primary();
-    table.string("company");
-    table.string("name");
+    table.string("logo_url");
+    table.string("company_name");
     table.dateTime("requested_date");
+    table.text("message");
     table.string("status");
     table.string("location");
-    table.string("action");
   }
 }
