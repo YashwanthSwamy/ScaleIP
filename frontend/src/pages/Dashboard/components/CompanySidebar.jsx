@@ -7,6 +7,7 @@ import { useCompanyContext } from '../contexts/CompanyContext';
 const CompanySidebar = ({ companyList }) => {
     const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
+    const [activeId, setActiveId] = useState();
     const { setSelectedCompanyId } = useCompanyContext();
 
     const lastIndex = currentPage * itemsPerPage;
@@ -19,6 +20,7 @@ const CompanySidebar = ({ companyList }) => {
 
     const handleCompanyClick = (companyId) => () => {
         setSelectedCompanyId(companyId);
+        setActiveId(companyId);
     };
 
     const handlePageClick = (pageNumber) => {
@@ -35,7 +37,7 @@ const CompanySidebar = ({ companyList }) => {
                 </div>
                 <div className="mt-4 lg:h-[78%] md:h-[70%]">
                     {currentCompanies.map((item) => (
-                        <div key={item.id} className='border m-2 rounded-lg cursor-pointer' onClick={handleCompanyClick(item.id)}>
+                        <div key={item.id} className={`${item.id == activeId ? 'bg-cyan-100': 'bg-white'} border m-2 rounded-lg cursor-pointer`} onClick={handleCompanyClick(item.id)}>
                             <div
                                 key={item.name}
                                 className='flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-cyan-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2'
