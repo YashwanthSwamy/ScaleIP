@@ -332,7 +332,7 @@ export const gridOrderStatus = (props) => (
 );
 
 const gridCompanyLogo = (props) => (
-  <div className="flex items-center gap-2">
+  <div className="flex items-center justify-center gap-2">
     <img
       className="rounded-full w-10 h-10"
       src={props.companyLogo}
@@ -359,7 +359,7 @@ export const ordersGrid = [
     headerText: 'company',
     template: gridCompanyLogo,
     textAlign: 'Center',
-    width: '120',
+    width: '150',
   },
   {
     field: 'name',
