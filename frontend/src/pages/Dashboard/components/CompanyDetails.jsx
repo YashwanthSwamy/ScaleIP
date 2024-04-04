@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { GoDotFill } from "react-icons/go";
 import axios from 'axios';
 
-import { Stacked, Button, SparkLine } from '../../../components';
-import { SparklineAreaData, companyDetailList } from '../../../data/dummy';
+import { Stacked, Button, SparkLine, Loading } from '../../../components';
+import { SparklineAreaData } from '../../../data/dummy';
 import { useCompanyContext } from '../contexts/CompanyContext';
 import { IntroCard, StatisticCard } from './';
 
@@ -40,17 +40,13 @@ const CompanyDetails = () => {
 
   if (!currentCompanyDetails) {
     return (
-      <div className='h-screen flex justify-center items-center'>
-        <p className='text-3xl text-cyan-900'> Make a Selection ...</p>
-      </div>
+        <Loading text={'Make a Selection'} />
     );
   }
 
   if (isLoading) {
     return (
-      <div className='h-screen flex justify-center items-center'>
-        <p className='text-3xl text-cyan-900'> Loading ...</p>
-      </div>
+        <Loading text={'Loading'} />
     );
   }
 

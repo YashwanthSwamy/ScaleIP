@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { CompanyDetails, CompanySidebar } from './components';
 import { CompanyProvider } from './contexts/CompanyContext';
-import axios from 'axios';
+import {Loading} from '../../components';
 
 const Dashboard = () => {
   const [companyList, setCompanyList] = useState([]);
@@ -30,22 +32,13 @@ const Dashboard = () => {
 
   if (isLoading) {
     return (
-      <div className='text-3xl  text-cyan-900 flex justify-center items-center'>
-        <p>
-          Loading ...
-        </p>
-      </div>
+        <Loading text={'Loading'}/>
     )
   }
 
   if (!companyList) {
     return (
-      <div className='text-3xl text-cyan-900 flex justify-center items-center'>
-        <p>
-          No Companies...
-        </p>
-      </div>
-
+        <Loading text={'No Companies'}/>
     )
   }
 
